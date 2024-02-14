@@ -1,46 +1,64 @@
-public class Algorithm {
-    public static void print (int[] input)
+import java.util.ArrayList;
+public class Algorithm
+{
+    public static void addInt (ArrayList<Integer> input, int i)
     {
-        for (int i : input) {
-            System.out.print(i + " ");
-        }
-
-    }
-    public static void swap (int[] input, int s1, int s2)
-    {
-        int copy = input[s1];
-        input[s1] = input[s2];
-        input[s2] = copy;
-    }
-
-    public static int max (int[] input)
-    {
-        int n = input[0];
-        for (int i = 1; i < input.length; i++)
+        for (int j = 0; j < input.size(); j++)
         {
-            if (input[i] > n) {
-                n = input[i];
-            }
-        }
-        return n;
-    }
-
-    public static int min (int[] input)
-    {
-        int n = input[0];
-        for (int i = 1; i < input.length; i++)
-        {
-            if (input[i] < n)
+            if (i < input.get(j))
             {
-                n = input[i];
+                input.add(j, i);
             }
         }
-        return n;
+   }
+
+   public static boolean reverse (ArrayList<Integer> input, ArrayList<Integer> input1)
+   {
+       if (input.size() != input1.size())
+       {
+           return false;
+       }
+       for (int i = 0; i < input.size(); i++)
+       {
+           if (input.get(i) == input.get(input1.size()-1-i))
+           {}
+           else
+           {
+               return false;
+           }
+       }
+       return true;
+   }
+
+   public static int maximum (ArrayList<Integer> input)
+   {
+       int i = input.get(0);
+       for (int j : input)
+       {
+           if (j > i)
+           {
+               i = j;
+           }
+       }
+       return i;
+   }
+
+    public static int minimum (ArrayList<Integer> input)
+    {
+        int i = input.get(0);
+        for (int j : input)
+        {
+            if (j < i)
+            {
+                i = j;
+            }
+        }
+        return i;
     }
 
-    public static String shortestString (String[] input)
+    public static String shortest (ArrayList<String> input)
     {
-        String str = input[0];
+        String str = input.get(0);
         for (String s : input)
         {
             if (s.length() < str.length())
@@ -51,9 +69,9 @@ public class Algorithm {
         return str;
     }
 
-    public static String longestString (String[] input)
+    public static String longest (ArrayList<String> input)
     {
-        String str = input[0];
+        String str = input.get(0);
         for (String s : input)
         {
             if (s.length() > str.length())
@@ -64,132 +82,16 @@ public class Algorithm {
         return str;
     }
 
-    public static int largestAbsoluteDifference(int[] input, int[] input1)
+    public static int largestAbsDiff (ArrayList<Integer> input, ArrayList<Integer> input1)
     {
-        int n = Math.abs(input[0] - input1[0]);
-        for (int i = 1; i < input.length; i++)
+        int i = 0;
+        if (input.size() != input1.size())
         {
-            if (Math.abs(input[i] - input1[i]) > n)
-            {
-                n = Math.abs(input[i] - input1[i]);
-                return n;
-            }
+            return -1;
         }
-        return n;
-    }
-
-    public static double average (double[] input)
-    {
-        double sum = 0;
-        for (double d : input)
+        for (int j = 0; j < input.size(); j++)
         {
-            sum += d;
+            if (input.get(j) - input1.get(j))
         }
-        return sum/input.length;
-    }
-
-    public static void reverse (int[] input)
-    {
-        int n = input[input.length-1];
-        for (int i = 0; i < input.length/2; i++)
-        {
-            input[input.length-i-1] = input[i];
-            input[i] = n;
-            n = input[input.length-i-2];
-        }
-    }
-
-    public static boolean consecutive (int[] input)
-    {
-        for (int i = 0; i < input.length-1; i++)
-        {
-            if (input[i] == input[i+1])
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static int firstNegative (int[] input)
-    {
-        for (int i = 0; i < input.length; i++)
-        {
-            if (input[i] < 0)
-            {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    public static boolean equivalentValue (int[] input)
-    {
-        for (int i = 0; i < input.length; i++)
-        {
-            for (int j = i + 1; j < input.length; j++)
-            {
-                if (input[i] == input[j])
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public static int longestConsecutiveStreak (int[] input, int i)
-    {
-        int n = 1;
-        int c = 0;
-        for (int j = 0; j < input.length; j++)
-        {
-            if (input[j] == i)
-            {
-                for (int k = j + 1; k < input.length; k++)
-                {
-                    if (input[k] == input[k-1])
-                    {
-                        n++;
-                    }
-                    if (n > c)
-                    {
-                        c = n;
-                    }
-                }
-                n = 1;
-            }
-        }
-        return c;
-    }
-
-    public static String lastAlphabetically (String[] input)
-    {
-        String s = input[0];
-        for (int i = 1; i < input.length; i++)
-        {
-            if (input[i].compareTo(s) > 0)
-            {
-                s = input[i];
-            }
-        }
-        return s;
-    }
-
-    public static boolean identialValues (int[] input, int[] input1)
-    {
-        for (int i : input)
-        {
-            for (int j : input1)
-            {
-                if (i == j)
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
     }
 }
-
-
