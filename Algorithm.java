@@ -1,4 +1,4 @@
-//7.3 Developing Algorithms Using ArrayLists
+//7.4 Developing Algorithms Using ArrayLists
 import java.util.ArrayList;
 public class Algorithm
 {
