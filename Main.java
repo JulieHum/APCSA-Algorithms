@@ -16,5 +16,8 @@ public class Main
         System.out.println(Algorithm.isInQ(ints1, 5));
         System.out.println(Algorithm.isInQ(ints2, 3));
         System.out.println(Algorithm.isInQ(ints3, 1));
+        System.out.println(Algorithm.firstOccurrence(ints1, 3));
+        System.out.println(Algorithm.firstOccurrence(ints2, 4));
+        System.out.println(Algorithm.firstOccurrence(ints3, 1));
     }
 }

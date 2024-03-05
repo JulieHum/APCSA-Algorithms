@@ -33,8 +33,20 @@ public class Algorithm
         return false;
     }
 
-    public static int[] firstOccurrence(int[][] input, int i)
+    public static String firstOccurrence(int[][] input, int i)
     {
-        for (int i = 0; i < input.length-1;i++)
+        for (int r = 0; r < input.length; r++)
+        {
+            for (int c = 0; c < input[0].length; c++)
+            {
+                if (input[r][c] == i)
+                {
+                   return "[" + r + ", " + c + "]";
+                }
+            }
+        }
+        return "[-1, -1]";
     }
+
+    public static
 }
